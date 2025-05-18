@@ -45,7 +45,7 @@ BlogEditor/\
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/blog-editor.git
+git clone https://github.com/anmolkhurana490/Blog-Editor.git
 cd BlogEditor
 ```
 
