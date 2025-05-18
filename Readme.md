@@ -2,7 +2,7 @@
 
 A full-stack blog editor where users can create, edit, auto-save drafts, and publish blogs. Built with React and Node.js, featuring JWT authentication and MongoDB storage.
 
-Demo-Link: https://personalized-health-companion.vercel.app/
+Demo-Link: https://blog-editor-8i87.vercel.app/
 
 ## 🚀 Features
 

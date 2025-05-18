@@ -25,6 +25,8 @@ router.post('/login', async (req, res) => {
         // Set the token in a cookie with httpOnly and maxAge options.
         res.cookie('loginToken', token, {
             httpOnly: true,
+            secure: true,
+            sameSite: 'none',
             maxAge: 24 * 60 * 60 * 1000, // 1 day
             path: '/',
         })
@@ -64,7 +66,7 @@ router.post('/register', async (req, res) => {
 router.get('/logout', (req, res) => {
     // res.set('Cache-Control', 'no-store');
     // Clear the authentication cookie
-    res.clearCookie('loginToken', { httpOnly: true, path: '/' });
+    res.clearCookie('loginToken', { httpOnly: true, secure: true, sameSite: 'none', path: '/' });
     res.status(200).json({ message: 'Logout successful' });
 });
 

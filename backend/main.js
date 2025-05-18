@@ -14,7 +14,8 @@ const app = express();
 
 // Middlewares to handle CORS, body parsing, and cookie parsing
 app.use(cors({
-    origin: ['http://localhost:5173'],
+    origin: ['http://localhost:5173', 'https://blog-editor-8i87.vercel.app/'],
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
     allowedHeaders: ["Content-Type", "Authorization"],
     credentials: true
 }));
