@@ -74,6 +74,12 @@ This starts your Express server on the specified port.
 
 ### 3. Frontend Setup
 
+- Create a .env file in the frontend folder:
+
+```
+VITE_BACKEND_URL=your_backend_url (http://localhost:5000 for local server)
+```
+
 - Open a new terminal, navigate to the frontend, Install dependencies and Run the development server:
 
 ```bash

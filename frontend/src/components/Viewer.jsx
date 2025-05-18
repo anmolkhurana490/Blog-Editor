@@ -5,6 +5,8 @@ import axios from 'axios'
 import { MdOutlineRefresh } from "react-icons/md";
 import { FaEdit } from "react-icons/fa";
 
+const backendURL = import.meta.env.VITE_BACKEND_URL;
+
 // Viewer component displays published and draft blogs.
 // Separates published and draft blogs.
 const Viewer = () => {
@@ -21,7 +23,7 @@ const Viewer = () => {
         try {
             // Shows loading state during fetch.
             setLoading(true)
-            const response = await axios.get('http://localhost:5000/api/blogs', { withCredentials: true });
+            const response = await axios.get(`${backendURL}/api/blogs`, { withCredentials: true });
 
             // filters blogs into published and draft categories.
             setBlogs(response.data.filter(blog => blog.status == 'published'))

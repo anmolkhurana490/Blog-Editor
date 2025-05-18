@@ -4,6 +4,9 @@ import axios from 'axios';
 import { AppContext } from '../AppProvider';
 import { useNavigate } from 'react-router-dom';
 
+// url for backend server
+const backendURL = import.meta.env.VITE_BACKEND_URL;
+
 // Authenticate component renders both Login and Signup cards.
 // Users can either log in or create a new account.
 // both cards use 'react-hook-form' for form handling and validation.
@@ -31,7 +34,7 @@ const LoginCard = () => {
     // handle login
     const onLogin = async (data) => {
         try {
-            const response = await axios.post('http://localhost:5000/api/login', data, { withCredentials: true });
+            const response = await axios.post(`${backendURL}/api/login`, data, { withCredentials: true });
             console.log("Login Response:", response.data);
             alert("Login successful!");
 
@@ -86,7 +89,7 @@ const SignupCard = () => {
     const onSignup = async (data) => {
         // handle signup
         try {
-            const response = await axios.post('http://localhost:5000/api/register', data, { withCredentials: true });
+            const response = await axios.post(`${backendURL}/api/register`, data, { withCredentials: true });
             console.log("Signup Response:", response.data);
             alert("Signup successful! Now you can login.");
             // handle successful signup

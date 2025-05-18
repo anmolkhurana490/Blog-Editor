@@ -4,6 +4,8 @@ import { useForm } from "react-hook-form";
 import { toast } from 'react-toastify';
 import axios from 'axios'
 
+const backendURL = import.meta.env.VITE_BACKEND_URL;
+
 // Blog editor component with auto-save draft and publish functionality.
 // Uses 'react-hook-form' for form management and axios for API calls.
 const Editor = () => {
@@ -29,7 +31,7 @@ const Editor = () => {
   const publish = async () => {
     const blogData = getBlogData();
 
-    const response = await axios.post('http://localhost:5000/api/blogs/publish', blogData, { withCredentials: true });
+    const response = await axios.post(`${backendURL}/api/blogs/publish`, blogData, { withCredentials: true });
     if (response.status === 201) {
       if (response.data.id) currIdRef.current = response.data.id;
       alert("Blog published successfully");
@@ -53,7 +55,7 @@ const Editor = () => {
     const blogData = getBlogData();
     console.log("Saving draft...", watch(), blogData);
 
-    const response = await axios.post('http://localhost:5000/api/blogs/save-draft', blogData, { withCredentials: true });
+    const response = await axios.post(`${backendURL}/api/blogs/save-draft`, blogData, { withCredentials: true });
 
     if (response.status === 201) {
       // draft saved successfully
@@ -68,7 +70,7 @@ const Editor = () => {
   // fetch the blog data when some blog of blogId is to be edited
   useEffect(() => {
     const fetchBlogData = async (blogId) => {
-      const response = await axios.get(`http://localhost:5000/api/blogs/${blogId}`, { withCredentials: true });
+      const response = await axios.get(`${backendURL}/api/blogs/${blogId}`, { withCredentials: true });
 
       if (response.status === 200) {
         const { title, content, tags } = response.data;

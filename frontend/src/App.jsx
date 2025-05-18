@@ -12,6 +12,9 @@ import axios from 'axios'
 import './App.css'
 import 'react-toastify/dist/ReactToastify.css';
 
+// url for the backend server
+const backendURL = import.meta.env.VITE_BACKEND_URL;
+
 // Main application router component to handle different routes
 const AppRouter = () => {
   return (
@@ -32,7 +35,7 @@ function App() {
   useEffect(() => {
     const fetchUser = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/user/profile', {
+        const response = await axios.get(`${backendURL}/api/user/profile`, {
           withCredentials: true,
         });
 
