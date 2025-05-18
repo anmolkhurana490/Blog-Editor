@@ -56,7 +56,7 @@ cd BlogEditor
 - Create a .env file in the backend folder:
 
 ```
-MONGODB\_URI=mongodb+srv://<username>:<password>@cluster.mongodb.net/Blog-Editor
+MONGODB\_URI=mongodb+srv://<username>:<password>@cluster.mongodb.net
 JWT\_SECRET=your\_jwt\_secret\_here
 ```
 
